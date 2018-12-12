@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Leetcode9 {
 
     public static boolean isPalindrome(int x) {
@@ -22,5 +25,7 @@ public class Leetcode9 {
 
     public static void main(String[] args) {
         System.out.println(isPalindrome(1221));
+
+        List<Integer> list = new LinkedList<>();
     }
 }
