@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.ArrayList;
+
 public class Leetcode14 {
 
     public static String longestCommonPrefix(String[] strs) {
@@ -42,4 +44,5 @@ public class Leetcode14 {
         String[] strs = {str1, str2, str3};
         System.out.println(longestCommonPrefix(strs));
     }
+
 }

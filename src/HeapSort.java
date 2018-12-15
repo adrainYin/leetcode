@@ -1,5 +1,10 @@
 public class HeapSort {
 
+    /**
+     * 堆排序，必须要重点掌握
+     * @param nums
+     * @return
+     */
     public static int[] minHeap(int[] nums){
         int end = nums.length - 1;
         int root_index = (end - 1) /2;
