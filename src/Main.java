@@ -9,6 +9,6 @@ public class Main {
         String s1 = "ab";
         String s2 = "cd";
         System.out.println((s1 + s2) == t);
-        HashMap
+
     }
 }
