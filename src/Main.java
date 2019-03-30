@@ -1,80 +1,80 @@
-import java.math.BigInteger;
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
 public class Main {
+
+
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-        String[] str1 = scanner.nextLine().split("");
-        scanner = new Scanner(System.in);
-        String[] str2 = scanner.nextLine().split("");
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
+        int d = scanner.nextInt();
+        int e = scanner.nextInt();
+        int f = scanner.nextInt();
+        boolean a1 = false;
+        boolean b1 = false;
+        boolean c1 = false;
 
-        Stack<String> result = new Stack<>();
-        BigInteger integer = new BigInteger("0");
-
-        System.out.println(compute(0, str1, str2, 0, 0, result));
-
-    }
-
-
-    public static long compute(long integer, String[] strs1, String[] strs2, int index1, int index2, Stack<String> stack) {
-        if (index1 == strs1.length && index2 == strs2.length) {
-            return 1;
+        int count = 0;
+        count += f;
+        if (e * 11 < a) {
+            count += e;
+            a -= 11 * e;
+        } else {
+            count += e;
+            a = 0;
         }
-
-        if (index1 == strs1.length) {
-            if (strs2[index2].equals("(")) {
-                stack.push("(");
-                return integer + compute(integer, strs1, strs2, index1, index2 + 1, stack);
-            } else {
-                if (stack.isEmpty()) {
-                    return integer;
-                } else {
-                    stack.pop();
-                    return integer + (compute(integer, strs1, strs2, index1, index2 + 1, stack));
+        if (5 * d < b) {
+            count += d;
+            b -= 5 * d;
+        } else {
+            count += d;
+            b = 0;
+        }
+        count += c / 4;
+        c = c % 4;
+        if (c == 0) {
+            if (b != 0 || a != 0)
+                count++;
+        } else if( c == 1) {
+            count ++;
+        }
+        else if (c == 2) {
+            if (b <= 2) {
+                count++;
+            } else if (b == 3) {
+                if (a <= 6)
+                    count++;
+                else {
+                    count += 2;
                 }
-            }
-
-        } else if (index2 == strs2.length) {
-            if (strs1[index1].equals("(")) {
-                stack.push("(");
-                return integer + (compute(integer, strs1, strs2, index1 + 1, index2, stack));
             } else {
-                if (stack.isEmpty()) {
-                    return integer;
-                } else {
-                    stack.pop();
-                    return integer + (compute(integer, strs1, strs2, index1 + 1, index2, stack));
-                }
+                count += 2;
             }
         } else {
-            if (strs1[index1].equals("(")) {
-                stack.push("(");
-                integer += (compute(integer, strs1, strs2, index1 + 1, index2, stack));
-            } else if (strs1[index1].equals(")")) {
-                if (stack.isEmpty()) {
-                    return integer;
+            if (b >= 2)
+                count += 2;
+            else {
+                if (b == 0) {
+                    if (a <= 9)
+                        count++;
+                    else
+                        count += 2;
                 } else {
-                    stack.pop();
-                    integer += (compute(integer, strs1, strs2, index1 + 1, index2, stack));
+                    if (a > 6)
+                        count += 2;
+                    else
+                        count++;
                 }
             }
 
-            if (strs2[index2].equals("(")) {
-                stack.push("(");
-                integer += (compute(integer, strs1, strs2, index1, index2 + 1, stack));
-            } else if (strs2[index2].equals(")")){
-                if (stack.isEmpty()) {
-                    return integer;
-                } else {
-                    stack.pop();
-                    integer += (compute(integer, strs1, strs2, index1, index2 + 1, stack));
-                }
-            }
-            return integer;
         }
+        System.out.println(count);
     }
+
 }
+

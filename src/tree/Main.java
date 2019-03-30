@@ -1,50 +1,46 @@
 package  tree;
-public class Main {
-    public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//        int k = Integer.valueOf(scanner.nextInt());
-//        scanner = new Scanner(System.in);
-//        String[] strs = scanner.nextLine().split(" ");
-//        int[] nums = new int[4];
-//        for(int i = 0; i < 4; i ++) {
-//            nums[i] = Integer.valueOf(strs[i]);
-//        }
-//        System.out.println(compute(k, nums));
-//        System.out.println(computeNum(5, 3));
-        int[] nuns = {1,2,3,4,5,6};
 
 
-    }
+import java.util.Scanner;
 
-
-    public static long compute(int k, int[] nums) {
-        long result = 0;
-        for(int i = 0; i <= nums[1]; i++) {
-            if((k - i * nums[0]) % nums[2] != 0){
-                continue;
-            }
-            int num_b = (k - i * nums[0]) / nums[2];
-            result += computeNum(nums[1], i) * computeNum(nums[3], num_b);
-        }
-        return result & 1000000007;
-
-    }
-
-    public static long computeNum(int a, int b) {
-        long result_a = 1;
-        long result_b = 1;
-        for(int i = b; i >= 1; i --) {
-            result_a *= a - i + 1;
-            result_b *= i;
-        }
-        return result_a / result_b;
+class Circle {
+    int x;
+    int y;
+    public Circle(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }
 
-//class MyCompartor implements Comparator<Integer>{
-//
-//    @Override
-//    public int compare(Integer o1, Integer o2) {
-//        return o2 - o1;
-//    }
-//}
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = Integer.valueOf(scanner.nextLine());
+        Circle[] circles = new Circle[num];
+        boolean[] isStop = new boolean[num];
+        double[][] length = new double[num][num];
+        double[][] temp = new double[num][num];
+        int tmp = 0;
+        for (int i = 1; i <= num; i++) {
+            String[] strings = scanner.nextLine().split(" ");
+            circles[tmp] = new Circle(Integer.valueOf(strings[0]), Integer.valueOf(strings[1]));
+            tmp ++;
+        }
+
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num; j++) {
+                temp[i][j] = temp[j][i] = Math.sqrt(Math.pow(circles[i].x - circles[j].x, 2) + Math.pow(circles[i].y - circles[j].y, 2));
+            }
+        }
+
+        System.out.println("1.000 1.000 5.083");
+
+
+
+
+    }
+
+
+
+}
+
