@@ -31,6 +31,7 @@ public class Leetcode33 {
             if (nums[right] == target) {
                 return right;
             }
+            //不要先判断中间的数字和target的关系
             if (nums[mid] < nums[left]) {
                 if (nums[mid] > target) {
                     right = mid - 1;
