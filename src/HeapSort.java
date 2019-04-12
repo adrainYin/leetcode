@@ -45,9 +45,46 @@ public class HeapSort {
 
     public static void main(String[] args) {
         int[] nums = {4,7,1,9,2,3,8,11};
-        int[] temp = minHeap(nums);
-        for (int i = 0; i < temp.length; i++) {
-            System.out.println(temp[i]);
+//        int[] temp = minHeap(nums);
+//        for (int i = 0; i < temp.length; i++) {
+//            System.out.println(temp[i]);
+//        }
+        quickSort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            System.out.println(nums[i]);
         }
     }
+
+    public static void quickSort(int[] nums) {
+
+        subSort(nums, 0, nums.length - 1);
+    }
+
+    public static void subSort(int[] nums, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+
+        int number = nums[left];
+        int l = left;
+        int r = right;
+        while (l < r) {
+            while (l < r && number <= nums[r]) {
+                r --;
+            }
+            if (l < r) {
+                nums[l++] = nums[r];
+            }
+            while (l < r && nums[l] <= number) {
+                l ++;
+            }
+            if (l < r) {
+                nums[r--] = nums[l];
+            }
+        }
+        nums[l] = number;
+        subSort(nums, left, l - 1);
+        subSort(nums, l + 1, right);
+    }
+
 }

@@ -43,7 +43,8 @@ public class Main {
             }
         }
         System.out.println(Math.max(a * b * c, a * d * e));
-        LinkedHashMap linkedHashMap;
+        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put(1, "hello");
 
     }
 
