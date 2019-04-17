@@ -1,18 +1,18 @@
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-
-/**
- * 在线笔试专用Main类
- * 请不要随意做修改
- */
-public class Main {
-
-
-    public static void main(String[] args) throws IOException {
-
+//import java.io.*;
+//import java.util.*;
+//import java.text.*;
+//import java.math.*;
+//import java.util.regex.*;
+//
+///**
+// * 在线笔试专用Main类
+// * 请不要随意做修改
+// */
+//public class Main {
+//
+//
+//    public static void main(String[] args) throws IOException {
+//
 
 //        Scanner scanner = new Scanner(System.in);
 //        String[] strings = scanner.nextLine().split(" ");
@@ -67,8 +67,8 @@ public class Main {
 //            jinbi[i] = scanner.nextInt();
 //        }
 //        System.out.println(function(wuli, jinbi));
-    }
-}
+//    }
+//}
 
 
 /**
@@ -96,38 +96,37 @@ public class Main {
 /**
  * 腾讯笔试题目的第一道
  */
-//}
-//
-//import java.util.Arrays;
-//
-//import java.util.Scanner;
-//
-//public class Main {
-//    public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//        int m = scanner.nextInt();
-//        int n = scanner.nextInt();
-//        int sum = 0,ans = 0;
-//        int num[] = new int[n];
-//        for(int i = 0;i<n;i++) {
-//            num[i] = scanner.nextInt();
-//        }
-//        Arrays.sort(num);
-//        if(num[0]!=1) {
-//            System.out.println("-1");
-//        }
-//        while(true) {
-//            if(sum >= m) {
-//                System.out.println(ans);
-//                break;
-//            }
-//            for(int i = n-1;i >= 0;i --) {
-//                if(num[i] <= sum + 1) {
-//                    sum += num[i];
-//                    ans++;
-//                    break;
-//                }
-//            }
-//        }
-//    }
-//}
+
+import java.util.Arrays;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int m = scanner.nextInt();
+        int n = scanner.nextInt();
+        int sum = 0,ans = 0;
+        int num[] = new int[n];
+        for(int i = 0;i<n;i++) {
+            num[i] = scanner.nextInt();
+        }
+        Arrays.sort(num);
+        if(num[0]!=1) {
+            System.out.println("-1");
+        }
+        while(true) {
+            if(sum >= m) {
+                System.out.println(ans);
+                break;
+            }
+            for(int i = n-1;i >= 0;i --) {
+                if(num[i] <= sum + 1) {
+                    sum += num[i];
+                    ans++;
+                    break;
+                }
+            }
+        }
+    }
+}
