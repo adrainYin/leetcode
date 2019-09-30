@@ -28,6 +28,8 @@ public class KMP {
         int[] chars = getNext(str.toCharArray());
         for (int i = 0; i < chars.length; i++) {
             System.out.println(chars[i]);
+
+
         }
     }
 }
